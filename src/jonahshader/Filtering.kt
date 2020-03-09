@@ -6,8 +6,8 @@ import java.lang.Math.cos
 fun interpFull(input: Float, inMin: Float, inMax: Float, outMin: Float, outMax: Float) : Float {
     val range = inMax - inMin
     val inPart = input - inMin
-//    val percent = inPart / range
-    val percent = sinSmooth(inPart / range)
+    var percent = inPart / range
+    percent = sinSmooth(percent)
     val out = (1-percent) * outMin + (percent * outMax)
     return out
 }
