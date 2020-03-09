@@ -14,12 +14,12 @@ class Octave(private val scale: Float, private val magnitude: Float, private val
         val xPercent = xf - xMin
         val yPercent = yf - yMin
 
-        val topLeftVal = posToVal(xMin, yMax)
-        val topRightVal = posToVal(xMax, yMax)
-        val botLeftVal = posToVal(xMin, yMin)
-        val botRightVal = posToVal(xMax, yMin)
+        val x0y1 = posToVal(xMin, yMax)
+        val x1y1 = posToVal(xMax, yMax)
+        val x0y0 = posToVal(xMin, yMin)
+        val x1y0 = posToVal(xMax, yMin)
 
-        val outPreMag = bilinear(xPercent, yPercent, topLeftVal, topRightVal, botLeftVal, botRightVal)
+        val outPreMag = bilinear(xPercent, yPercent, x0y0, x1y0, x0y1, x1y1)
         return outPreMag * magnitude
     }
 
