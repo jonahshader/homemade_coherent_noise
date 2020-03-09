@@ -1,11 +1,12 @@
 package jonahshader
 
 import processing.core.PApplet
+import kotlin.math.pow
 
 class App : PApplet() {
 //    val octave = Octave(0.25f, 1f, 50)
     val octaveSet = Octaves(14)
-    var scale = 1f
+    var scale = .1f
 
     override fun settings() {
         size(640, 640)

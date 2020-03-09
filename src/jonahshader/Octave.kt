@@ -1,6 +1,6 @@
 package jonahshader
 
-class Octave(private val scale: Float, private val magnitude: Float, private val seed: Int) {
+class Octave(private val scale: Float, private val magnitude: Float, private val xOffset: Int, private val yOffset: Int) {
 
     fun get(x: Float, y: Float) : Float {
         val xf = x * scale
@@ -28,7 +28,8 @@ class Octave(private val scale: Float, private val magnitude: Float, private val
 
     private fun posToVal(x: Int, y: Int) : Float {
 
-        var seedOut = ((x.nextRand() + seed).nextRand() + y.nextRand()).betterHash().nextRand()
+//        var seedOut = (.betterHash() + y.betterHash()).nextRand().nextRand()
+        var seedOut = ((x + xOffset).betterHash() + (y + yOffset)).betterHash().nextRand()
 
 //        for (i in 1..100) seedOut = seedOut.nextRand()
 

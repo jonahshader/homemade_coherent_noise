@@ -8,7 +8,7 @@ class Octaves(numOctaves: Int) {
 
     init {
         for (i in 0 until numOctaves) {
-            octaves += Octave(2f.pow(i), .5f.pow(i), (Math.random() * Long.MAX_VALUE).toInt())
+            octaves += Octave(2f.pow(i), .5f.pow(i), (Math.random() * Int.MAX_VALUE).toInt(), (Math.random() * Int.MAX_VALUE).toInt())
             maxValue += .5f.pow(i)
         }
     }
